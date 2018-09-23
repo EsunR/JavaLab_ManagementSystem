@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaLab Console StuINF</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script type="text/javascript" src="lib/js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="lib/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="lib/js/popper.min.js" ></script>
+		<link rel="stylesheet" href="lib/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/stu_inf.css" />
+		<link rel="shortcut icon" href="favicon.ico">
+	</head>
+	<body>
+		<nav class="navbar navbar-light bg-light">
+		  <a class="navbar-brand" href="/datacapsule">
+		    <img src="img/Java_logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+		    Java Lab Console 控制中心
+		  </a>
+		</nav>
+		<!--个人信息卡-->
+		<div class="container">
+			<div class="row">
+				<div class="col-12" id="card_box">
+					
+					<!--名字（大色块）-->
+					<div id="name_box">
+						<div id="name"><%= db.name %></div>
+					</div>
+					
+					<!--详细信息-->
+					<!--信息：第一行-->
+					<div class="row inner_box">
+						<div class="col-md-6 inf">
+							<span class="inf_title">ID</span>
+							<span class="inf_content"><%= db.id %></span>
+						</div>
+						<div class="col-md-6 inf">
+							<span class="inf_title">学 号</span>
+							<span class="inf_content"><%= db.stu_num %></span>
+						</div>
+					</div>
+					<!--信息：第二行-->
+					<div class="row inner_box">
+						<div class="col-md-6 inf">
+							<span class="inf_title">电 话</span>
+							<span class="inf_content"><%= db.phone %></span>
+						</div>
+						<div class="col-md-6 inf">
+							<span class="inf_title">Email</span>
+							<span class="inf_content"><%= db.email %></span>
+						</div>
+					</div>
+					<!--信息：第三行-->
+					<div class="row inner_box">
+						<div class="col-md-6 inf">
+							<span class="inf_title">性 别</span>
+							<span class="inf_content"><%= db.sex %></span>
+						</div>
+						<div class="col-md-6 inf">
+							<span class="inf_title">经 验</span>
+							<span class="inf_content"><%= db.exp %></span>
+						</div>
+					</div>
+					
+					<!--简历-->
+					<div class="resume row inner_box">
+						<div class="col-12 inf">
+							<span class="inf_title">简历</span>
+							<span class="resume_content">
+								<%= db.resume %>
+							</span>
+						</div>
+					</div>
+					
+					<!--票数-->
+					<div class="resume row inner_box">
+						<div class="col-12 inf" style="border-bottom: none;">
+							<span class="inf_title">票数</span>
+							<span class="inf_content"><%= db.ticket %> Tickets</span>
+						</div>
+					</div>
+					
+				</div>
+
+			</div>
+			
+			<div class="col-12">
+				<div id="btn_box">
+					<div id="btn_box_inner">
+						<a class="btn btn-primary" href="/stu_inf?id=<%= db.id %>&act=ticket" role="button" style="margin-right: 2rem;">投票</a>
+						<a id="delet_btn" class="btn btn-danger" href="/stu_inf?id=<%= db.id %>&act=delete" role="button">删除</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		
+		
+	</body>
+</html>

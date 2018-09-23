@@ -1,0 +1,61 @@
+body{
+	font-family: "微软雅黑";
+	text-align: center;
+	background: #e9f9fe;
+}
+
+#main_box{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 20rem;
+	width: 20rem;
+	margin-top: -10rem;
+	margin-left: -10rem;
+}
+
+#flag_top{
+	background: url(../img/flag_top.png);
+	height: 6rem;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+#title-1{
+	margin-top: 1rem;
+	font-size: 1.5em;
+	color: rgba(0,0,0,0.7);
+}
+#title-2{
+	font-size: 5em;
+	margin-top: 2rem;
+}
+#title-2 span{
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	padding: 0.2rem 2.5rem;
+	border-radius: 1.5rem;
+	color: rgba(0,0,0,0.7);
+}
+
+#title_box{
+	margin-top: 2rem;
+	color: rgba(0,0,0,0.7);
+}
+
+#footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 0.5rem 0;
+	box-shadow: 0 0 10px rgba(0,0,10,0.2);
+	background: white;
+	color: rgba(0,0,0,0.6);
+}
+
+#flag_bottom{
+	background: url(../img/flag_bottom.png);
+	height: 6rem;
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+}

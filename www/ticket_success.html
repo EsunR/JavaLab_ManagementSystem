@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>投票成功</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script type="text/javascript" src="lib/js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="lib/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="lib/js/popper.min.js" ></script>
+		<link rel="stylesheet" href="lib/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/stu_inf.css" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<style>
+			body{
+				background: #e9f9ff;
+			}
+			#title{
+				margin-top: 7rem;
+				text-align: center;
+				font-weight: 100;
+			}
+			#subtitle{
+				text-align: center;
+				margin-top: 1rem;
+				color: rgba(0,0,0,0.5);
+			}
+			#btn{
+				display: block;
+				margin: 0 auto;
+				margin-top: 5rem;
+			}
+			#bottom_box{
+				width: 100%;
+				height: 25%;
+				background: url(img/bunting-flag.png);
+				position: fixed;
+				bottom: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-light bg-light">
+		  <a class="navbar-brand" href="/">
+		    <img src="img/Java_logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+		    Java Lab Console 控制中心
+		  </a>
+		</nav>
+		
+		<div class="container">
+			<div class="col-12 display-4" id="title">投票成功</div>
+			<div class="col-12" id="subtitle">成功投票给：测试人员<br/>当前票数为：4 Tickets</div>
+			<button class="btn btn-primary" id="btn">返回数据胶囊</button>
+		</div>
+		
+		<div id="bottom_box"></div>
+	</body>
+</html>

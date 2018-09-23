@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaLab Console</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script type="text/javascript" src="lib/js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript" src="lib/js/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="lib/js/popper.min.js" ></script>
+	<script type="text/javascript" src="js/javalab_console.js" ></script>
+	<link rel="stylesheet" href="lib/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/javalab_console.css" />
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+	<nav class="navbar navbar-light bg-light">
+	  <a class="navbar-brand" href="#">
+	    <img src="img/Java_logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+	    Java Lab Console 控制中心
+	  </a>
+	</nav>
+	<div class="container" id="main_box">
+		<div class="row">
+			<div class="col-12" id="title">数据胶囊 DataCapsule</div>
+			<div class="col-12" id="subtitle">当前数据量:<%= count%></div>
+		</div>
+
+		<!-- 搜索框 -->
+		<div class="row">
+			<div class="col-12">
+				<div class="input-group mb-4">
+				  <input id="search_text" type="text" class="form-control" placeholder="查找ID" aria-label="find_id" aria-describedby="basic-addon2">
+				  <div class="input-group-append">
+				    <button id="search" class="btn btn-primary" type="button">搜 索</button>
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<% for(i=0; i<db.length; i++){ %>
+		<div class="row capsule_box">
+			<a href="/stu_inf?id=<%= db[i].id %>" class="col-sm-12 col-md-2">
+				<span class="cap-head">ID: <%= db[i].id%></span>
+			</a>
+			<div class="col-sm-12 col-md-10">
+				<span class="cap-left capsule"><%= db[i].stu_num%></span>
+				<span class="cap-right capsule"><%= db[i].name%>（<%= db[i].sex%>）</span>
+			</div>
+		</div>
+		<hr />
+		<% } %>
+
+	</div>
+</body>
+</html>

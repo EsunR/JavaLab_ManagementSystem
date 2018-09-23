@@ -1,0 +1,21 @@
+body{
+	background: #202e40;
+	color: white !important;
+}
+
+#main_box{
+	margin-top: 2.5rem;
+}
+#bottom_box{
+	margin-top: 6rem;
+}
+#bottom_img{
+	width: 95%;
+	margin: 0 auto;
+	display: block;
+}
+@media screen and (min-width: 1201px) { 
+	#bottom_img{
+		width: 50%
+	} 
+} 
