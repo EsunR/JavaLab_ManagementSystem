@@ -279,7 +279,7 @@ server.get('/stu_inf_admin', (req, res, next)=>{
 
 //获取邮箱
 server.get('/get_email', (req, res, next)=>{
-	db.query("SELECT email FROM `user`;", (err, data)=>{
+	db.query("SELECT * FROM `user` WHERE arrived = '1' ORDER BY ticket DESC LIMIT 0,15;", (err, data)=>{
 		if(err){
 			console.log(err);
 			res.status(500).send('database error').end();
