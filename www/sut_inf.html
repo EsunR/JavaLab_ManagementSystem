@@ -84,14 +84,25 @@
 				</div>
 			</div>
 			
-			<div class="col-12">
-				<div id="btn_box">
-					<div id="btn_box_inner">
-						<a class="btn btn-primary" href="#" role="button" style="margin-right: 2rem;">投 票</a>
-						<a class="btn btn-danger" href="#" role="button">删 除</a>
-					</div>
+			<div class="row">
+				<div class="col-2"></div>
+				<div class="col-8">
+					<!--<a class="btn btn-success col-2" href="#" role="button" style="margin-bottom: 1.5rem; max-width: 48%;">面试打卡</a>-->
+					<a class="btn btn-success col-2 disabled" href="#" role="button" style="margin-bottom: 1.5rem; max-width: 48%;">已打卡</a>
+					<a class="btn btn-danger col-2" href="#" role="button" style="margin-bottom: 1.5rem; max-width: 48%;">删 除</a>
 				</div>
+				<div class="col-2"></div>
 			</div>
+
+			<div class="row">
+				<div class="col-2"></div>
+				<div class="col-8">
+					<a class="btn btn-primary col-4" href="/stu_inf_admin?id=<%= db.id %>&act=ticket" role="button" style="margin-bottom: 1.5rem; max-width: 97%;">投 票</a>
+				</div>
+
+				<div class="col-2"></div>
+			</div>
+			
 		</div>
 		
 		

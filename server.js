@@ -82,7 +82,7 @@ server.get('/datacapsule', (req, res)=>{
 	res.render('javalab_console.ejs', {count: res.count, db: res.stu_data});
 })
 
-///访问stu_msg目录时=============================================
+///访问stu_inf目录时=============================================
 server.get('/stu_inf', (req, res, next)=>{
 	if(req.query.id){
 		var current_id = req.query.id; //获取当前的id
@@ -180,6 +180,118 @@ server.get('/searchmyid', (req, res)=>{
 })
 
 
+//访问超级管理员首页admin时=============================================
+///获取已注册人数
+server.get('/admin', (req, res, next)=>{
+	db.query("SELECT count(id) AS 'count' FROM `user`;", (err, data)=>{
+		if(err){
+			console.log(err);
+			res.status(500).send('database error').end();
+		}
+		else{
+			res.count = data[0].count;
+			next();
+		}
+	})
+})
+///获取数据
+server.get('/admin', (req, res, next)=>{
+	db.query("SELECT id, name, sex, stu_num FROM user;", (err, data)=>{
+		if(err){
+			console.log(err);
+			res.status(500).send('database error').end();
+		}else{
+			res.stu_data = data;
+			next();
+		}
+	});
+})
+///渲染首页
+server.get('/admin', (req, res)=>{
+	res.render('admin.ejs', {count: res.count, db: res.stu_data});
+})
+
+
+//访问超级管理员stu_inf_admin时=============================================
+server.get('/stu_inf_admin', (req, res, next)=>{
+	if(req.query.id){
+		var current_id = req.query.id; //获取当前的id
+		if(req.query.act){
+			if(req.query.act == 'ticket'){
+				db.query(`UPDATE user SET ticket=ticket+1 WHERE id=` + current_id + `;`, (err)=>{
+					if(err){
+						console.log(err);
+						res.status(500).send('database error').end();
+					}else{
+						db.query('SELECT name, ticket FROM user WHERE id=' + current_id + ';', (err, data)=>{
+							if(err){
+								console.log(err);
+								res.status(500).send('database error').end();
+							}
+							else{
+								res.redirect('/stu_inf_admin?id=' + current_id);
+							}
+						})
+						
+					}
+				})
+			}else if(req.query.act == 'arrived'){
+				db.query(`UPDATE user SET arrived=1 WHERE id=` + current_id + `;`, (err)=>{
+					if(err){
+						console.log(err);
+						res.status(500).send('database error').end();
+					}else{
+						res.redirect('/stu_inf_admin?id=' + current_id);
+					}
+				})
+			}else if(req.query.act == 'delete'){
+				db.query('DELETE FROM user WHERE id=' + current_id + ';', (err)=>{
+					if(err){
+						console.log(err);
+						res.status(500).send('database error').end();
+					}else{
+						res.redirect('/admin');
+					}
+				})
+			}else{
+				res.send('操作出错！')
+			}
+		}else{
+			db.query(`SELECT * FROM user WHERE id=${req.query.id};`,(err, data)=>{
+			if(err){
+					res.status(500).send('数据有问题').end();
+					console.log(err);
+				}else{
+					//判断该ID是否被注册
+					if(data.length == 0){
+						res.render('no_found.ejs');
+					}
+					else{
+						res.render('stu_inf_admin.ejs', {db: data[0]});
+					}
+				}
+			})
+		}
+	}else{
+		res.send('url不合法');
+	}
+})
+
+//获取邮箱
+server.get('/get_email', (req, res, next)=>{
+	db.query("SELECT email FROM `user`;", (err, data)=>{
+		if(err){
+			console.log(err);
+			res.status(500).send('database error').end();
+		}else{
+			var email_string = "";
+			for(var i=0; i<data.length; i++){
+				email_string += data[i].email + ";";
+			}
+			console.log(email_string);
+		}
+	})
+});
 
 //5.配置static，设置读取静态文件的目录
 server.use(static('./www'));
