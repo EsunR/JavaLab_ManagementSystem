@@ -236,7 +236,7 @@ server.get('/stu_inf_admin', (req, res, next)=>{
 					}
 				})
 			}else if(req.query.act == 'arrived'){
-				db.query(`UPDATE user SET arrived=1 WHERE id=` + current_id + `;`, (err)=>{
+				db.query(`UPDATE user SET arrived=2 WHERE id=` + current_id + `;`, (err)=>{
 					if(err){
 						console.log(err);
 						res.status(500).send('database error').end();
@@ -279,7 +279,7 @@ server.get('/stu_inf_admin', (req, res, next)=>{
 
 //获取邮箱
 server.get('/get_email', (req, res, next)=>{
-	db.query("SELECT * FROM `user` WHERE arrived = '1' ORDER BY ticket DESC LIMIT 0,15;", (err, data)=>{
+	db.query("SELECT * from `user` where arrived = '2' OR arrived = '1';", (err, data)=>{
 		if(err){
 			console.log(err);
 			res.status(500).send('database error').end();
