@@ -9,9 +9,9 @@ const mysql = require('mysql');
 
 //创建数据库连接池
 const db = mysql.createPool({
-		host: '47.95.196.58', 
+		host: 'EnterYourHostIP', 
 		user: 'root',
-		password: 'Mysql@12345678',
+		password: 'EnterYourPassword',
 		database: 'javalab'
 })
 
